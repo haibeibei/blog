@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="处理普通post请求12345678const bodyParser = require(&apos;body-parser&apos;);// parse application/x-www-form-urlencodedapp.use(bodyParser.urlencoded(&amp;#123;extended: false&amp;#125;));// parse application/jsonapp.use(bodyP">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-02T06:41:15.229Z">
+<meta property="og:updated_time" content="2017-08-02T15:10:26.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express web开发常用代码">
 <meta name="twitter:description" content="处理普通post请求12345678const bodyParser = require(&apos;body-parser&apos;);// parse application/x-www-form-urlencodedapp.use(bodyParser.urlencoded(&amp;#123;extended: false&amp;#125;));// parse application/jsonapp.use(bodyP">
@@ -48,7 +48,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://img3.duitang.com/uploads/item/201602/01/20160201194229_Lsukf.thumb.700_0.jpeg" class="js-avatar">
+			<img src="/assets/img/avatar.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">郑智园</a></h1>
@@ -84,11 +84,9 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/haibeibei" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
+					<a class="weibo" target="_blank" href="http://weibo.com/u/2238227407" title="weibo"><i class="icon-weibo"></i></a>
 		        
 			</div>
 		</nav>
@@ -106,7 +104,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://img3.duitang.com/uploads/item/201602/01/20160201194229_Lsukf.thumb.700_0.jpeg" class="js-avatar">
+				<img src="/assets/img/avatar.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">郑智园</h1>
@@ -125,11 +123,9 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/haibeibei" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="bilibili" target="_blank" href="#" title="bilibili"><i class="icon-bilibili"></i></a>
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2238227407" title="weibo"><i class="icon-weibo"></i></a>
 			        
 				</div>
 			</nav>
@@ -175,11 +171,47 @@
         
       </header>
     
+    <!-- 目录内容 -->
+
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#处理普通post请求"><span class="toc-number">1.</span> <span class="toc-text">处理普通post请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理session"><span class="toc-number">2.</span> <span class="toc-text">处理session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传文件"><span class="toc-number">3.</span> <span class="toc-text">上传文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react富文本编辑器组件"><span class="toc-number">4.</span> <span class="toc-text">react富文本编辑器组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建md5"><span class="toc-number">5.</span> <span class="toc-text">创建md5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql封装"><span class="toc-number">6.</span> <span class="toc-text">mysql封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防止意外退出"><span class="toc-number">7.</span> <span class="toc-text">防止意外退出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react项目中使用fetch"><span class="toc-number">8.</span> <span class="toc-text">react项目中使用fetch</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="处理普通post请求"><a href="#处理普通post请求" class="headerlink" title="处理普通post请求"></a>处理普通post请求</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const bodyParser = require(<span class="string">'body-parser'</span>);</div><div class="line">// parse application/x-www-form-urlencoded</div><div class="line">app.use(bodyParser.urlencoded(&#123;extended: false&#125;));</div><div class="line">// parse application/json</div><div class="line">app.use(bodyParser.json());</div><div class="line">app.post('/',(req,res)=&gt;&#123;</div><div class="line">  console.log(req.body);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="处理session"><a href="#处理session" class="headerlink" title="处理session"></a>处理session</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">const session = require(<span class="string">'express-session'</span>);</div><div class="line">app.use(session(&#123;</div><div class="line">  secret: <span class="string">'keyboard cat'</span>,</div><div class="line">  resave: false,</div><div class="line">  saveUninitialized: true</div><div class="line">&#125;));</div><div class="line">app.get('/logincheck',(req,res)=&gt;&#123;</div><div class="line">  req.session.login = true;</div><div class="line">&#125;)</div><div class="line">// 中间件</div><div class="line">app.use('/admin',(req,res,next)=&gt;&#123;</div><div class="line">  <span class="keyword">if</span>(req.seesion.login)&#123;</div><div class="line">    next();</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    res.redirct(<span class="string">'/login'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const fs = require(<span class="string">'fs'</span>);</div><div class="line">const <span class="keyword">async</span> = require(<span class="string">'async'</span>);</div><div class="line">const multer = require(<span class="string">'multer'</span>);</div><div class="line">const upload = multer(&#123;dest: <span class="string">'uploads/'</span>&#125;);</div><div class="line">app.post(<span class="string">'/upload'</span>, upload.single(<span class="string">'wangEditorH5File'</span>), function (req, res) &#123;</div><div class="line">  <span class="keyword">async</span>.series([</div><div class="line">    function (callback) &#123;</div><div class="line">      fs.createReadStream(req.file.path).pipe(fs.createWriteStream(<span class="string">'public/imgs/'</span> + req.file.originalname));</div><div class="line">      callback(null);</div><div class="line">    &#125;,</div><div class="line">    function (callback) &#123;</div><div class="line">      fs.unlink(path.resolve(req.file.path));</div><div class="line">      callback(null);</div><div class="line">    &#125;</div><div class="line">  ], function () &#123;</div><div class="line">    res.end(<span class="string">'/imgs/'</span> + req.file.originalname);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="react富文本编辑器组件"><a href="#react富文本编辑器组件" class="headerlink" title="react富文本编辑器组件"></a>react富文本编辑器组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">  &lt;title&gt;Document&lt;/title&gt;</div><div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/wangEditor.min.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id=&quot;page&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;script src=&quot;js/jquery-2.2.1.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;js/wangEditor.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;/js/admin.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">const React = require(&apos;react&apos;);</div><div class="line">const ReactDOM = require(&apos;react-dom&apos;);</div><div class="line">class Editor extends React.Component &#123;</div><div class="line">  constructor(props) &#123;</div><div class="line">    super(props);</div><div class="line">    this.getContents = this.getContents.bind(this);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  componentDidMount() &#123;</div><div class="line">    this.editor = new window.wangEditor(this.el);</div><div class="line">    this.editor.config.uploadImgUrl = &apos;/upload&apos;;</div><div class="line">    this.editor.create();</div><div class="line">    // 初始化内容</div><div class="line">    this.editor.$txt.html(&apos;&lt;div&gt;this is a a&lt;/div&gt;&apos;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getContents() &#123;</div><div class="line">    console.log(this.editor.$txt.html());</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;div contentEditable=&quot;true&quot; style= ref=&#123;(el)=&gt;&#123;this.el = el&#125;&#125;&gt;&lt;/div&gt;</div><div class="line">        &lt;div onClick=&#123;this.getContents&#125;&gt;获取内容&lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">ReactDOM.render(&lt;Editor/&gt;, document.querySelector(&apos;#page&apos;));</div></pre></td></tr></table></figure>
+<h2 id="创建md5"><a href="#创建md5" class="headerlink" title="创建md5"></a>创建md5</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const crypto = require(&apos;crypto&apos;);</div><div class="line">const hash = crypto.createHash(&apos;md5&apos;);</div><div class="line">hash.update(&apos;123456&apos;);</div><div class="line">console.log(hash.digest(&apos;hex&apos;));</div></pre></td></tr></table></figure>
+<h2 id="mysql封装"><a href="#mysql封装" class="headerlink" title="mysql封装"></a>mysql封装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const mysql = require(&apos;mysql&apos;);</div><div class="line">const pool = mysql.createPool(&#123;</div><div class="line">  connectionLimit: 1000,</div><div class="line">  host: &apos;localhost&apos;,</div><div class="line">  user: &apos;root&apos;,</div><div class="line">  password: &apos;root&apos;,</div><div class="line">  database: &apos;music&apos;</div><div class="line">&#125;);</div><div class="line">function query(sql, arr, fn) &#123;</div><div class="line">  pool.getConnection((err, con)=&gt; &#123;</div><div class="line">    con.query(sql, arr, (err, res)=&gt; &#123;</div><div class="line">      con.release();</div><div class="line">      fn(err, res);</div><div class="line">    &#125;)</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line">module.exports = &#123;</div><div class="line">  query: query</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="防止意外退出"><a href="#防止意外退出" class="headerlink" title="防止意外退出"></a>防止意外退出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">process.on(&apos;uncaughtException&apos;, (ex)=&gt; &#123;</div><div class="line">  console.log(&apos;error&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="react项目中使用fetch"><a href="#react项目中使用fetch" class="headerlink" title="react项目中使用fetch"></a>react项目中使用fetch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// npm install whatwg-fetch --save</div><div class="line">// 在html页面中引入whatwg-fetch.js</div><div class="line"></div><div class="line">// fetch上传文件</div><div class="line">var input = document.querySelector(&apos;input[type=&quot;file&quot;]&apos;)</div><div class="line"></div><div class="line">var data = new FormData()</div><div class="line">data.append(&apos;file&apos;, input.files[0])</div><div class="line">data.append(&apos;user&apos;, &apos;hubot&apos;)</div><div class="line"></div><div class="line">fetch(&apos;/avatars&apos;, &#123;</div><div class="line">  method: &apos;POST&apos;,</div><div class="line">  body: data</div><div class="line">&#125;)</div><div class="line">// fetch提交表单</div><div class="line">var form = document.querySelector(&apos;form&apos;)</div><div class="line"></div><div class="line">fetch(&apos;/users&apos;, &#123;</div><div class="line">  method: &apos;POST&apos;,</div><div class="line">  body: new FormData(form)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>转载自<a href="http://nate-river.github.io/blog/2017/03/08/express-code.html" target="_blank" rel="external">马彦龙老师的博客</a>.</p>
+
       
 
       
@@ -195,6 +227,16 @@
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
                     
                   </div>
                 </span>
@@ -283,11 +325,15 @@
   
 <nav id="article-nav">
   
-  
-    <a href="/2017/08/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
+    <a href="/2017/08/02/无题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          闲谈三两句
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -312,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#处理普通post请求"><span class="toc-number">1.</span> <span class="toc-text">处理普通post请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理session"><span class="toc-number">2.</span> <span class="toc-text">处理session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传文件"><span class="toc-number">3.</span> <span class="toc-text">上传文件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#处理普通post请求"><span class="toc-number">1.</span> <span class="toc-text">处理普通post请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理session"><span class="toc-number">2.</span> <span class="toc-text">处理session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传文件"><span class="toc-number">3.</span> <span class="toc-text">上传文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react富文本编辑器组件"><span class="toc-number">4.</span> <span class="toc-text">react富文本编辑器组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建md5"><span class="toc-number">5.</span> <span class="toc-text">创建md5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql封装"><span class="toc-number">6.</span> <span class="toc-text">mysql封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防止意外退出"><span class="toc-number">7.</span> <span class="toc-text">防止意外退出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react项目中使用fetch"><span class="toc-number">8.</span> <span class="toc-text">react项目中使用fetch</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -369,7 +415,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -433,6 +479,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -483,27 +533,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://nate-river.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>马彦龙老师博客</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="http://www.zhangxinxu.com/wordpress/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>张鑫旭博客</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://www.ruanyifeng.com/blog/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>阮一峰博客</a>
             </li>
           
         </ul>
@@ -514,7 +552,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一只毕业于上海师范大学在上海漂泊的前端汪</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">毕业于上师大&lt;br&gt;&lt;br&gt;爱好动漫，美食&lt;br&gt;&lt;br&gt;喜欢钻研小玩意儿&lt;br&gt;&lt;br&gt;寻找工作中</div>
   	  	
     	</section>
     
