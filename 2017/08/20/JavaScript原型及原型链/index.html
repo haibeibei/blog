@@ -7,15 +7,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://haibeibei.github.io/blog">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="一、原型原型是 ECMAScript 实现继承的过程中产生的一个概念。 继承： java 中：指在已有的一个类基础上创建新类的过程。 ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://haibeibei.github.io/blog/archives/index.html">
+<meta property="og:url" content="https://haibeibei.github.io/blog/2017/08/20/JavaScript原型及原型链/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、原型原型是 ECMAScript 实现继承的过程中产生的一个概念。 继承： java 中：指在已有的一个类基础上创建新类的过程。 ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://haibeibei.github.io/blog/assets/img/1.png">
+<meta property="og:image" content="https://haibeibei.github.io/blog/assets/img/2.png">
+<meta property="og:image" content="https://haibeibei.github.io/blog/assets/img/3.png">
+<meta property="og:updated_time" content="2017-08-20T08:59:14.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="一、原型原型是 ECMAScript 实现继承的过程中产生的一个概念。 继承： java 中：指在已有的一个类基础上创建新类的过程。 ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。">
+<meta name="twitter:image" content="https://haibeibei.github.io/blog/assets/img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -159,362 +167,196 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaScript原型及原型链" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、原型"><a href="#一、原型" class="headerlink" title="一、原型"></a>一、原型</h1><p>原型是 ECMAScript 实现继承的过程中产生的一个概念。</p>
+<p>继承：</p>
+<p>java 中：指在已有的一个类基础上创建新类的过程。</p>
+<p>ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。<br><a id="more"></a></p>
+<h2 id="创建原型"><a href="#创建原型" class="headerlink" title="创建原型"></a>创建原型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 鸟对象</div><div class="line">var bird = &#123;</div><div class="line">    name: &quot;bird&quot;,</div><div class="line"></div><div class="line">    fly: function () &#123;</div><div class="line">        console.log(&quot;fly&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>假设我们需要一个鹰对象，因为我们已经有一个鸟对象，因此可以从这个鸟对象继承信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//鹰对象</div><div class="line">var eagle = Object.create(bird);</div><div class="line">eagle.fly(); // fly</div></pre></td></tr></table></figure></p>
+<p>通过 Object.create() 方法我们传入了鸟对象，作为鹰对象的原型来创建鹰对象，然后鹰对象中就产生了一个叫 <em>proto</em> 的指针，这指针指向鸟对象。通过这个指针鹰对象就可以访问到鸟对象的 fly() 方法，当然编译器帮我们自动处理了这个指针访问的过程。</p>
+<p>但是对于原型来讲，prototype 属性是很重要的存在，下面来讲讲 prototype。</p>
+<h1 id="二、prototype-属性"><a href="#二、prototype-属性" class="headerlink" title="二、prototype 属性"></a>二、prototype 属性</h1><p>从一个例子讲 prototype 属性存在解决了什么问题。<br>现在有一个叫做 DOG 的构造函数，表示狗对象的原型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function DOG(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对这个构造函数使用new，就会生成一个狗对象的实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dogA = new DOG(&apos;大毛&apos;);</div><div class="line">alert(dogA.name); // 大毛</div></pre></td></tr></table></figure></p>
+<h2 id="new运算符的缺点"><a href="#new运算符的缺点" class="headerlink" title="new运算符的缺点"></a>new运算符的缺点</h2><p>但是，用构造函数生成实例对象，有一个缺点，那就是无法共享属性和方法。</p>
+<p>比如，在DOG对象的构造函数中，设置一个实例对象的共有属性species。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function DOG(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.species = &apos;犬科&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后，生成两个实例对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var dogA = new DOG(&apos;大毛&apos;);</div><div class="line">var dogB = new DOG(&apos;二毛&apos;);</div></pre></td></tr></table></figure></p>
+<p>这两个对象的species属性是独立的，修改其中一个，不会影响到另一个。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dogA.species = &apos;猫科&apos;;</div><div class="line">alert(dogB.species); // 显示&quot;犬科&quot;，不受dogA的影响</div></pre></td></tr></table></figure></p>
+<p>每一个实例对象，都有自己的属性和方法的副本。这不仅无法做到数据共享，也是极大的资源浪费。</p>
+<h2 id="prototype属性的引入"><a href="#prototype属性的引入" class="headerlink" title="prototype属性的引入"></a>prototype属性的引入</h2><p>考虑到这一点，Brendan Eich 决定为构造函数设置一个 prototype 属性。<br>这个属性包含一个对象（以下简称” prototype 对象”），所有实例对象需要共享的属性和方法，都放在这个对象里面；那些不需要共享的属性和方法，就放在构造函数里面。</p>
+<p>实例对象一旦创建，将自动引用 prototype 对象的属性和方法。也就是说，实例对象的属性和方法，分成两种，一种是本地的，另一种是引用的。</p>
+<p>还是以 DOG 构造函数为例，现在用 prototype 属性进行改写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function DOG(name)&#123;</div><div class="line">    this.name = name;</div><div class="line">&#125;</div><div class="line">DOG.prototype = &#123; species : &apos;犬科&apos; &#125;;</div><div class="line"></div><div class="line">var dogA = new DOG(&apos;大毛&apos;);</div><div class="line">var dogB = new DOG(&apos;二毛&apos;);</div><div class="line"></div><div class="line">alert(dogA.species); // 犬科</div><div class="line">alert(dogB.species); // 犬科</div></pre></td></tr></table></figure></p>
+<p>现在，species属性放在prototype对象里，是两个实例对象共享的。只要修改了prototype对象，就会同时影响到两个实例对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DOG.prototype.species = &apos;猫科&apos;;</div><div class="line"></div><div class="line">alert(dogA.species); // 猫科</div><div class="line">alert(dogB.species); // 猫科</div></pre></td></tr></table></figure></p>
+<h1 id="三、原型链"><a href="#三、原型链" class="headerlink" title="三、原型链"></a>三、原型链</h1><p>讲原型一个不可避免的概念就是原型链，原型链是通过前面两种创建原型的方式 Object.create() 或 DOG.prototype 时生成的一个 <em>proto</em> 指针来实现的。</p>
+<p>以　DOG 为例讲原型链</p>
+<p><img src="/blog/assets/img/1.png" alt="1"></p>
+<p>红色的箭头就是原型链。DOG 对象有一个 prototype 对象，而实例对象 dogA 通过一个 <em>proto</em> 对象引用这个 prototype 对象。</p>
+<p>可以看出 dogA 能访问到的 species 属性实际上是在 DOG 的原型电源线 prototype 中，因此才能实现实例对象属性共享访问却不能修改。</p>
+<p>但是在 DOG.prototype 中还存在一个 <em>proto</em> 属性，这又是指向谁呢？</p>
+<p>看图</p>
+<p><img src="/blog/assets/img/2.png" alt="2"></p>
+<p>指向 Object 对象，这样 DOG 对象就拥有 Object 对象中原型属性和方法。比如说 toString() 就在其中。</p>
+<p>还有一点，那就是 Js 的函数也是对象啊，我们每个创建的函数其实也继承了一个函数对象，而函数则继承了 Object 对象。</p>
+<p><img src="/blog/assets/img/3.png" alt="3"></p>
+<p>以上就是一个简单的 Dog 类完整的原型链。</p>
+<p>总结一下原型链作用：对象属性的访问修改和删除。</p>
+<ol>
+<li>访问。优先在对象本身查找，没有则顺着原型链向上查找</li>
+<li>修改。只能修改跟删除自身属性，不会影响到原型链上的其他对象。</li>
+</ol>
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><p>由于所有的实例对象共享同一个 prototype 对象，那么从外界看起来，prototype 对象就好像是实例对象的原型，而实例对象则好像”继承”了 prototype 对象一样。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/blog/assets/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/blog/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/08/20/JavaScript原型及原型链/" class="archive-article-date">
-  	<time datetime="2017-08-20T08:43:25.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/04/01/四驱兄弟/" class="archive-article-date">
-  	<time datetime="2017-04-01T03:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/04/01/四驱兄弟/">四驱兄弟</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">四驱车</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/03/09/express web开发常用代码/" class="archive-article-date">
-  	<time datetime="2017-03-08T16:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/03/09/express web开发常用代码/">express web开发常用代码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2016/05/02/搭建前端自动化搭建环境/" class="archive-article-date">
-  	<time datetime="2016-05-02T12:40:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/02/搭建前端自动化搭建环境/">搭建前端自动化开发环境</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端自动化</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://haibeibei.github.io/blog/2017/08/20/JavaScript原型及原型链/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2015" class="archive-year">2015</a>
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2017/04/01/四驱兄弟/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">四驱兄弟</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/09/02/Fullpage配置项/" class="archive-article-date">
-  	<time datetime="2015-09-02T02:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/09/02/Fullpage配置项/">express web开发常用代码</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fullpage</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/08/12/JavaScript之闭包/" class="archive-article-date">
-  	<time datetime="2015-08-12T13:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/08/12/JavaScript之闭包/">JavaScript之闭包</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/07/02/css3动画/" class="archive-article-date">
-  	<time datetime="2015-07-02T10:50:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/07/02/css3动画/">css3动画</a>
-    </h1>
+  <div id="SOHUCS" sid="JavaScript原型及原型链" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt8VfDNK"; 
+var conf = "prod_68092a92823749c50b41fce7da27b662"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css3动画</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/07/01/Markdown语法 与 Hexo常用指令/" class="archive-article-date">
-  	<time datetime="2015-06-30T16:22:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/07/01/Markdown语法 与 Hexo常用指令/">Markdown语法 与 Hexo常用指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
 
           </div>
         </div>
@@ -536,8 +378,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

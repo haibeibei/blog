@@ -7,15 +7,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://haibeibei.github.io/blog">
-  <title>Archives | Hexo</title>
+  <title>JavaScript之闭包 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://haibeibei.github.io/blog/archives/index.html">
+  <meta name="description" content="闭包闭包（closure）是Javascript语言的一个重点，也是难点。 百度版本闭包是指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义局部变量。 简述闭包，简单来说就是可以读取其他函数内部变量的函数。只要满足这一点的函数，都可以叫闭包。">
+<meta name="keywords" content="博客,javascript,闭包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript之闭包">
+<meta property="og:url" content="https://haibeibei.github.io/blog/2015/08/12/JavaScript之闭包/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="闭包闭包（closure）是Javascript语言的一个重点，也是难点。 百度版本闭包是指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义局部变量。 简述闭包，简单来说就是可以读取其他函数内部变量的函数。只要满足这一点的函数，都可以叫闭包。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-20T07:41:42.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="JavaScript之闭包">
+<meta name="twitter:description" content="闭包闭包（closure）是Javascript语言的一个重点，也是难点。 百度版本闭包是指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义局部变量。 简述闭包，简单来说就是可以读取其他函数内部变量的函数。只要满足这一点的函数，都可以叫闭包。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -159,245 +164,120 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-JavaScript之闭包" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/08/20/JavaScript原型及原型链/" class="archive-article-date">
-  	<time datetime="2017-08-20T08:43:25.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/04/01/四驱兄弟/" class="archive-article-date">
-  	<time datetime="2017-04-01T03:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/04/01/四驱兄弟/">四驱兄弟</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript之闭包
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">四驱车</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2017/03/09/express web开发常用代码/" class="archive-article-date">
-  	<time datetime="2017-03-08T16:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2017/03/09/express web开发常用代码/">express web开发常用代码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">express</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2016/05/02/搭建前端自动化搭建环境/" class="archive-article-date">
-  	<time datetime="2016-05-02T12:40:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/02/搭建前端自动化搭建环境/">搭建前端自动化开发环境</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端自动化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/09/02/Fullpage配置项/" class="archive-article-date">
-  	<time datetime="2015-09-02T02:00:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/09/02/Fullpage配置项/">express web开发常用代码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Fullpage</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/08/12/JavaScript之闭包/" class="archive-article-date">
+        
+        <a href="/blog/2015/08/12/JavaScript之闭包/" class="archive-article-date">
   	<time datetime="2015-08-12T13:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/08/12/JavaScript之闭包/">JavaScript之闭包</a>
-    </h1>
-  
+        
+      </header>
+    
+    <!-- 目录内容 -->
 
-        <div class="article-info info-on-right">
-          
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#百度版本"><span class="toc-number">1.1.</span> <span class="toc-text">百度版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简述"><span class="toc-number">1.2.</span> <span class="toc-text">简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局变量？局部变量？"><span class="toc-number">1.3.</span> <span class="toc-text">全局变量？局部变量？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#另一方面，在函数外部自然无法读取函数内的局部变量。"><span class="toc-number">1.4.</span> <span class="toc-text">另一方面，在函数外部自然无法读取函数内的局部变量。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数内部声明变量的时候，必须使用var命令去声明一个变量。如果不用的话，就会声明了一个全局变量。"><span class="toc-number">1.5.</span> <span class="toc-text">函数内部声明变量的时候，必须使用var命令去声明一个变量。如果不用的话，就会声明了一个全局变量。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#夹不到菜，怎么让大人帮忙？"><span class="toc-number">1.6.</span> <span class="toc-text">夹不到菜，怎么让大人帮忙？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#好像有点明白了，但是怎么用呢？"><span class="toc-number">1.7.</span> <span class="toc-text">好像有点明白了，但是怎么用呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用闭包需要注意些什么"><span class="toc-number">1.8.</span> <span class="toc-text">使用闭包需要注意些什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套函数的闭包"><span class="toc-number">1.9.</span> <span class="toc-text">嵌套函数的闭包</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p><strong>闭包（closure）是Javascript语言的一个重点，也是难点。</strong></p>
+<h3 id="百度版本"><a href="#百度版本" class="headerlink" title="百度版本"></a>百度版本</h3><p><strong>闭包</strong>是指可以包含自由（未绑定到特定对象）变量的代码块；这些变量不是在这个代码块内或者任何全局上下文中定义的，而是在定义代码块的环境中定义局部变量。</p>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>闭包，简单来说就是可以读取其他函数内部变量的函数。只要满足这一点的函数，都可以叫闭包。<br><a id="more"></a></p>
+<blockquote>
+<p>作用域主要分为两种：全局变量和局部变量。 </p>
+<h3 id="全局变量？局部变量？"><a href="#全局变量？局部变量？" class="headerlink" title="全局变量？局部变量？"></a>全局变量？局部变量？</h3><ul>
+<li>局部变量:只能用于定义它函数内部。对于其他的函数或脚本代码是不可用的。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function myFunction() &#123; </div><div class="line">var n = 5; return n * n; </div><div class="line">&#125; myFunction();</div><div class="line">// 25 换个方式 </div><div class="line">function myFunction() &#123; </div><div class="line">var n = 5; return n * n;</div><div class="line">&#125; </div><div class="line">console.log(n);</div><div class="line">//Uncaught ReferenceError: n is not defined</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>全局变量：函数可以访问由函数内部定义的变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var n = 5; </div><div class="line">function myFunction() &#123; </div><div class="line">return n * n; </div><div class="line">&#125; </div><div class="line">myFunction();</div><div class="line">// 25</div><div class="line">``` </div><div class="line">### Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。</div><div class="line">例如： 　　</div><div class="line">```var n=1;</div><div class="line">function example()&#123;</div><div class="line"> alert(n);</div><div class="line">  &#125;</div><div class="line">  f1();</div><div class="line">  // 1</div></pre></td></tr></table></figure></p>
+<h3 id="另一方面，在函数外部自然无法读取函数内的局部变量。"><a href="#另一方面，在函数外部自然无法读取函数内的局部变量。" class="headerlink" title="另一方面，在函数外部自然无法读取函数内的局部变量。"></a>另一方面，在函数外部自然无法读取函数内的局部变量。</h3><p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function example()&#123;</div><div class="line"> var n=1;</div><div class="line">&#125;</div><div class="line">alert(n);</div><div class="line"> // error 报错</div></pre></td></tr></table></figure></p>
+<h3 id="函数内部声明变量的时候，必须使用var命令去声明一个变量。如果不用的话，就会声明了一个全局变量。"><a href="#函数内部声明变量的时候，必须使用var命令去声明一个变量。如果不用的话，就会声明了一个全局变量。" class="headerlink" title="函数内部声明变量的时候，必须使用var命令去声明一个变量。如果不用的话，就会声明了一个全局变量。"></a>函数内部声明变量的时候，必须使用var命令去声明一个变量。如果不用的话，就会声明了一个全局变量。</h3><p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function example()&#123;</div><div class="line">n=1;</div><div class="line">&#125;</div><div class="line">example();</div><div class="line">alert(n); // 1</div></pre></td></tr></table></figure></p>
+<h3 id="夹不到菜，怎么让大人帮忙？"><a href="#夹不到菜，怎么让大人帮忙？" class="headerlink" title="夹不到菜，怎么让大人帮忙？"></a>夹不到菜，怎么让大人帮忙？</h3><p>就好比小孩在饭桌上吃饭，由于手比较短，只能在自己力所能及的范围内夹菜，也就是夹自己面前的菜（<code>执行环境</code>）；但是我们可以借用闭包（大人帮忙）的方式来夹别的菜。<br>当我们需要得到函数内的局部变量时，正常情况下，是取不到的，只有通过巧妙的方法去实现。 </p>
+<blockquote>
+<p>解决方法：就是在自己的函数内部在定义一个函数E，然后再将函数E的值 return 回去，不就可以被访问了。\</p>
+</blockquote>
+<p>废话少说，上菜！！！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function example()&#123;</div><div class="line">    var n=1;</div><div class="line">    function example2()&#123;</div><div class="line">    alert(n);</div><div class="line">    &#125;</div><div class="line">    return example2;</div><div class="line">&#125;</div><div class="line">var result=example();</div><div class="line">result(); // 1</div></pre></td></tr></table></figure></p>
+<h3 id="好像有点明白了，但是怎么用呢？"><a href="#好像有点明白了，但是怎么用呢？" class="headerlink" title="好像有点明白了，但是怎么用呢？"></a>好像有点明白了，但是怎么用呢？</h3><p>闭包不仅可以读取函数内部的变量，上面也提到了，还能让这些变量的值始终保持在内存中。<br>我们再来看下面这个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function example1()&#123;</div><div class="line">    var n=1; </div><div class="line">    Add = function() &#123;</div><div class="line">        n+=1 </div><div class="line">    &#125; </div><div class="line">    function example2()&#123; </div><div class="line">        alert(n);</div><div class="line">    &#125; </div><div class="line">    return example2;  </div><div class="line">    &#125; </div><div class="line">    var result=example1();</div><div class="line">    result(); // 1 </div><div class="line">    Add();</div><div class="line">    result(); // 2</div></pre></td></tr></table></figure></p>
+<p>上面的代码中第一个” <code>result()</code>; “执行完以后，输出结果 “<code>1</code>”,第二的” <code>result();</code> “执行完以后，输出结果 “<code>2</code>”，这就证明了，函数 <code>example1</code> 中的局部变量<code>n</code>一直保存在内存中，并没有在第一个” <code>result();</code> “执行完以后被自动清除；才能在执行第二个”<code>result();</code> “完以后，输出结果 “<code>2</code>”，如果这样就容易造成我们平时所说的全局空间污染。<br>还需要注意的是，上面的 “<code>Add=function(){n+=1}</code>” 这部分代码，一看这家伙居然没有名字（匿名函数），而且，变量还是没通过 <code>var</code> 去命名的，所以呢，就定义成了一个全局变量，所以外部函数当然可以对它”拳打脚踢”的操作咯；所以就有了”<code>Add();</code>” 执行以后，第二个 “<code>result();</code>”才能实现 <code>n</code> 的累加输出 “<code>2</code>”。</p>
+<h3 id="使用闭包需要注意些什么"><a href="#使用闭包需要注意些什么" class="headerlink" title="使用闭包需要注意些什么"></a>使用闭包需要注意些什么</h3><p>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE浏览器中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。 </p>
+<blockquote>
+<p>回收内存方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function example() &#123; </div><div class="line">    var n = 1; </div><div class="line">    return fun()&#123; alert(n++) &#125;; </div><div class="line">&#125; </div><div class="line">fun();</div><div class="line">// 1 执行完后 n++，变量n任然存在于内存中 fun = null;</div><div class="line">// n被回收</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（<code>object</code>）使用，把闭包当作它的公用方法（<code>Public Method</code>），把内部变量当作它的私有属性（<code>private value</code>），这时一定要小心，不要随便改变父函数内部变量的值。 </p>
+<h3 id="嵌套函数的闭包"><a href="#嵌套函数的闭包" class="headerlink" title="嵌套函数的闭包"></a>嵌套函数的闭包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function example() &#123;</div><div class="line">    var n = 1; </div><div class="line">    return fun()&#123; alert(n++) &#125;;</div><div class="line">&#125; </div><div class="line">var fun = example(); </div><div class="line">fun();</div><div class="line">// 1 执行完后 n++，变量n任然存在于内存中 fun();</div><div class="line">// 2 fun = null;// n被回收</div></pre></td></tr></table></figure>
+<p>闭包的缺点就是常驻内存，闭包会使变量始终保存在内存中，如果使用不当会增大内存使用量，很容易造成内存泄露。 正常情况下外部函数是不能访问内部函数的变量的，但是可以利用闭包来实现对函数内部变量的访问。 一般函数执行完毕后，局部活动对象就被销毁，内存中仅仅保存全局作用域。但闭包的情况不同！ 简而言之，闭包就是内部函数和外部函数连接的一座桥梁，（大人就是小孩与饭桌上所有菜的小助手）。</p>
+<p>转载自FSUX.ME<br>作者: FSUX</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/blog/assets/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/blog/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -417,104 +297,121 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://haibeibei.github.io/blog/2015/08/12/JavaScript之闭包/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/07/02/css3动画/" class="archive-article-date">
-  	<time datetime="2015-07-02T10:50:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-02</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/blog/2015/09/02/Fullpage配置项/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          express web开发常用代码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/07/02/css3动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">css3动画</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/07/02/css3动画/">css3动画</a>
-    </h1>
-  
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">css3动画</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/blog/2015/07/01/Markdown语法 与 Hexo常用指令/" class="archive-article-date">
-  	<time datetime="2015-06-30T16:22:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2015/07/01/Markdown语法 与 Hexo常用指令/">Markdown语法 与 Hexo常用指令</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="JavaScript之闭包" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt8VfDNK"; 
+var conf = "prod_68092a92823749c50b41fce7da27b662"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+  
 
+  
 
           </div>
         </div>
@@ -536,8 +433,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
