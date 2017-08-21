@@ -7,21 +7,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://haibeibei.github.io/blog">
-  <title>Hexo</title>
+  <title>原型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、原型原型是 ECMAScript 实现继承的过程中产生的一个概念。 继承： java 中：指在已有的一个类基础上创建新类的过程。 ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。">
+<meta name="keywords" content="博客,原型和原型链">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://haibeibei.github.io/blog/2017/08/20/JavaScript原型及原型链/index.html">
+<meta property="og:title" content="原型">
+<meta property="og:url" content="https://haibeibei.github.io/blog/2016/03/01/JavaScript原型及原型链/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一、原型原型是 ECMAScript 实现继承的过程中产生的一个概念。 继承： java 中：指在已有的一个类基础上创建新类的过程。 ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://haibeibei.github.io/blog/assets/img/1.png">
 <meta property="og:image" content="https://haibeibei.github.io/blog/assets/img/2.png">
 <meta property="og:image" content="https://haibeibei.github.io/blog/assets/img/3.png">
-<meta property="og:updated_time" content="2017-08-20T08:59:14.438Z">
+<meta property="og:updated_time" content="2017-08-20T11:57:46.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="原型">
 <meta name="twitter:description" content="一、原型原型是 ECMAScript 实现继承的过程中产生的一个概念。 继承： java 中：指在已有的一个类基础上创建新类的过程。 ES：指在一个对象的基础上创建新对象的过程。原型指在这过程中作为基础的对象。">
 <meta name="twitter:image" content="https://haibeibei.github.io/blog/assets/img/1.png">
   
@@ -170,8 +171,47 @@ var _hmt = _hmt || [];
             <article id="post-JavaScript原型及原型链" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      原型
+    </h1>
+  
+
+        
+        <a href="/blog/2016/03/01/JavaScript原型及原型链/" class="archive-article-date">
+  	<time datetime="2016-03-01T05:30:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-01</time>
+</a>
+        
+      </header>
+    
     <!-- 目录内容 -->
 
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+	<div id="toc-article" class="toc-article">
+	    <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+		<strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、原型"><span class="toc-number">1.</span> <span class="toc-text">一、原型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建原型"><span class="toc-number">1.1.</span> <span class="toc-text">创建原型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、prototype-属性"><span class="toc-number">2.</span> <span class="toc-text">二、prototype 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#new运算符的缺点"><span class="toc-number">2.1.</span> <span class="toc-text">new运算符的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#prototype属性的引入"><span class="toc-number">2.2.</span> <span class="toc-text">prototype属性的引入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、原型链"><span class="toc-number">3.</span> <span class="toc-text">三、原型链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、总结"><span class="toc-number">4.</span> <span class="toc-text">四、总结</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
@@ -251,6 +291,21 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">原型和原型链</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -301,7 +356,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://haibeibei.github.io/blog/2017/08/20/JavaScript原型及原型链/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://haibeibei.github.io/blog/2016/03/01/JavaScript原型及原型链/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,9 +370,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/blog/2016/05/02/搭建前端自动化搭建环境/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          搭建前端自动化开发环境
+        
+      </div>
+    </a>
   
-    <a href="/blog/2017/04/01/四驱兄弟/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">四驱兄弟</div>
+  
+    <a href="/blog/2015/09/02/Fullpage配置项/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">express web开发常用代码</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -457,23 +521,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">express</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端自动化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">四驱车</a>
+                <a href="javascript:void(0)" class="js-tag color2">原型和原型链</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,7 +533,27 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Fullpage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">四驱车</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端自动化</a>
               </li>
             
             <div class="clearfix"></div>
