@@ -9,18 +9,18 @@
   <link rel="dns-prefetch" href="https://haibeibei.github.io/blog">
   <title>创建ajax的过程 | 郑智园博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#Ajax全称是Asynchronous JavaScript and XML ，其中Asynchronous是异步的意思，它又别于传统的Web开发采用的同步的方式。 Ajax并非一种新的技术，而是几种原有的技术的结合体，它由下列技术组合而成。12345671使用CSS和XHTML来表示2使用DOM模型来交互和动态显示3使用XHTMLHttpResquest来和服务器进行异步通信。4使用JavaS">
+  <meta name="description" content="#Ajax全称是Asynchronous JavaScript and XML ，其中Asynchronous是异步的意思，它又别于传统的Web开发采用的同步的方式。">
 <meta name="keywords" content="博客,ajax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建ajax的过程">
 <meta property="og:url" content="https://haibeibei.github.io/blog/2016/09/08/创建ajax的过程/index.html">
 <meta property="og:site_name" content="郑智园博客">
-<meta property="og:description" content="#Ajax全称是Asynchronous JavaScript and XML ，其中Asynchronous是异步的意思，它又别于传统的Web开发采用的同步的方式。 Ajax并非一种新的技术，而是几种原有的技术的结合体，它由下列技术组合而成。12345671使用CSS和XHTML来表示2使用DOM模型来交互和动态显示3使用XHTMLHttpResquest来和服务器进行异步通信。4使用JavaS">
+<meta property="og:description" content="#Ajax全称是Asynchronous JavaScript and XML ，其中Asynchronous是异步的意思，它又别于传统的Web开发采用的同步的方式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-23T13:54:07.137Z">
+<meta property="og:updated_time" content="2017-08-23T14:12:52.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建ajax的过程">
-<meta name="twitter:description" content="#Ajax全称是Asynchronous JavaScript and XML ，其中Asynchronous是异步的意思，它又别于传统的Web开发采用的同步的方式。 Ajax并非一种新的技术，而是几种原有的技术的结合体，它由下列技术组合而成。12345671使用CSS和XHTML来表示2使用DOM模型来交互和动态显示3使用XHTMLHttpResquest来和服务器进行异步通信。4使用JavaS">
+<meta name="twitter:description" content="#Ajax全称是Asynchronous JavaScript and XML ，其中Asynchronous是异步的意思，它又别于传统的Web开发采用的同步的方式。">
   
     <link rel="alternative" href="/atom.xml" title="郑智园博客" type="application/atom+xml">
   
@@ -211,19 +211,12 @@ var _hmt = _hmt || [];
 <!-- 目录内容结束 -->
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#<strong>Ajax</strong><br>全称是Asynchronous JavaScript and XML ，其中<strong>Asynchronous</strong>是异步的意思，它又别于传统的Web开发采用的同步的方式。</p>
-<p><strong>Ajax</strong>并非一种新的技术，而是几种原有的技术的结合体，它由下列技术组合而成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1使用CSS和XHTML来表示</div><div class="line"></div><div class="line">2使用DOM模型来交互和动态显示</div><div class="line"></div><div class="line">3使用XHTMLHttpResquest来和服务器进行异步通信。</div><div class="line"></div><div class="line">4使用JavaScript来绑定和调用</div></pre></td></tr></table></figure></p>
+        <p>#<strong>Ajax</strong><br>全称是Asynchronous JavaScript and XML ，其中<strong>Asynchronous</strong>是异步的意思，它又别于传统的Web开发采用的同步的方式。<br><a id="more"></a><br><strong>Ajax</strong>并非一种新的技术，而是几种原有的技术的结合体，它由下列技术组合而成。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1使用CSS和XHTML来表示</div><div class="line"></div><div class="line">2使用DOM模型来交互和动态显示</div><div class="line"></div><div class="line">3使用XHTMLHttpResquest来和服务器进行异步通信。</div><div class="line"></div><div class="line">4使用JavaScript来绑定和调用</div></pre></td></tr></table></figure></p>
 <h1 id="创建过程"><a href="#创建过程" class="headerlink" title="创建过程"></a>创建过程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"> //(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.</div><div class="line"></div><div class="line"> //(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</div><div class="line"></div><div class="line"> //(3)设置响应HTTP请求状态变化的函数.</div><div class="line"></div><div class="line"> //(4)发送HTTP请求.</div><div class="line"></div><div class="line"> //(5)获取异步调用返回的数据.</div><div class="line"></div><div class="line"> //(6)使用JavaScript和DOM实现局部刷新.</div><div class="line"></div><div class="line"></div><div class="line">var xmlHttp = new XMLHttpRequest();</div><div class="line">  </div><div class="line"> xmlHttp.open(&apos;GET&apos;,&apos;demo.php&apos;,&apos;true&apos;);</div><div class="line"></div><div class="line"> xmlHttp.send()</div><div class="line"></div><div class="line"> xmlHttp.onreadystatechange = function()&#123;</div><div class="line"></div><div class="line">     if(xmlHttp.readyState === 4 &amp; xmlHttp.status === 200)&#123;</div><div class="line"></div><div class="line">     &#125;</div><div class="line"></div><div class="line"> &#125;</div><div class="line">  //(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.</div><div class="line"> </div><div class="line">  //(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.</div><div class="line"> </div><div class="line">  //(3)设置响应HTTP请求状态变化的函数.</div><div class="line"> </div><div class="line">  //(4)发送HTTP请求.</div><div class="line"> </div><div class="line">  //(5)获取异步调用返回的数据.</div><div class="line"> </div><div class="line">  //(6)使用JavaScript和DOM实现局部刷新.</div><div class="line"> </div><div class="line"> var xmlHttp = new XMLHttpRequest();</div><div class="line"> </div><div class="line">  xmlHttp.open(&apos;GET&apos;,&apos;demo.php&apos;,&apos;true&apos;);</div><div class="line"> </div><div class="line">  xmlHttp.send()</div><div class="line"> </div><div class="line">  xmlHttp.onreadystatechange = function()&#123;</div><div class="line"> </div><div class="line">      if(xmlHttp.readyState === 4 &amp; xmlHttp.status === 200)&#123;</div><div class="line"> </div><div class="line">      &#125;</div><div class="line"> </div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h1 id="为什么要使用ajax框架"><a href="#为什么要使用ajax框架" class="headerlink" title="为什么要使用ajax框架"></a>为什么要使用ajax框架</h1><ol>
-<li><p>简化JavaScript的开发难度</p>
-</li>
-<li><p>解决浏览器兼容性问题</p>
-</li>
-<li><p>简化开发流程</p>
-</li>
-<li><p>增强用户体验，提高系统性能</p>
-</li>
-</ol>
+<h1 id="为什么要使用ajax框架"><a href="#为什么要使用ajax框架" class="headerlink" title="为什么要使用ajax框架"></a>为什么要使用ajax框架</h1><p>1.简化JavaScript的开发难度</p>
+<p>2.解决浏览器兼容性问题</p>
+<p>3.简化开发流程</p>
+<p>4.增强用户体验，提高系统性能</p>
 
       
 
@@ -470,6 +463,10 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Fullpage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -482,35 +479,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">状态码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">css3动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">原型和原型链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">正则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Fullpage</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">四驱车</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,11 +491,35 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">express</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">css3动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">四驱车</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">前端自动化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">express</a>
+                <a href="javascript:void(0)" class="js-tag color4">状态码</a>
               </li>
             
             <div class="clearfix"></div>
